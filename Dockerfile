@@ -5,5 +5,5 @@ ADD pkgdir /
 RUN pacman-key --init; \
     pacman-key --populate archlinux; \
     pacman -Syu --noconfirm base; \
-    locale-gen; \
+    locale-gen;
 CMD /bin/bash
