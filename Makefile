@@ -4,7 +4,7 @@ INPUT_ARCHIVE=archlinux-bootstrap-$(RELEASE_DATE)-x86_64.tar.gz
 OUTPUT_DIR=pkgdir
 CURL=curl -\# -O
 
-.PHONY: docker-build
+.PHONY: docker-build publish
 
 all: $(INPUT_ARCHIVE) $(OUTPUT_DIR) docker-build
 
@@ -23,7 +23,10 @@ $(OUTPUT_DIR):
 	rm $(OUTPUT_DIR)/README
 
 docker-build:
-	docker build --rm=true --force-rm=true -t archlinux-bootstrap .
+	docker build --rm=true --force-rm=true -t svenstaro/archlinux-bootstrap:$(RELEASE_DATE) .
+
+publish:
+	docker push svenstaro/archlinux-bootstrap:2014.07.03
 
 clean:
 	rm -rf $(OUTPUT_DIR)
