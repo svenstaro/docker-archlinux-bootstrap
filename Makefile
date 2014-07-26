@@ -20,6 +20,7 @@ $(OUTPUT_DIR):
 	echo 'en_US.UTF-8 UTF-8' > $(OUTPUT_DIR)/etc/locale.gen
 	echo 'LANG="en_US.UTF-8"' > $(OUTPUT_DIR)/etc/locale.conf
 	ln -s /usr/share/zoneinfo/UTC $(OUTPUT_DIR)/etc/localtime
+	rm $(OUTPUT_DIR)/README
 
 docker-build:
 	docker build --rm=true --force-rm=true -t archlinux-bootstrap .
