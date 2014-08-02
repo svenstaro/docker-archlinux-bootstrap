@@ -26,7 +26,7 @@ docker-build:
 	docker build --rm=true --force-rm=true -t svenstaro/archlinux-bootstrap:$(RELEASE_DATE) .
 
 publish:
-	docker push svenstaro/archlinux-bootstrap:2014.07.03
+	docker push svenstaro/archlinux-bootstrap:$(RELEASE_DATE)
 
 clean:
 	rm -rf $(OUTPUT_DIR)
